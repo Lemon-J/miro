@@ -1,0 +1,17 @@
+# 核心框架
+flask>=3.0.0
+flask-cors>=6.0.0
+
+# 配置管理
+python-dotenv>=1.0.0
+
+# LLM 调用（后续步骤添加）
+# openai>=1.0.0
+
+# 知识图谱（后续步骤添加）
+# zep-cloud==3.13.0
+
+# 文件解析（后续步骤添加）
+# PyMuPDF>=1.24.0
+# charset-normalizer>=3.0.0
+# chardet>=5.0.0
