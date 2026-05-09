@@ -5,7 +5,7 @@
 
 from flask import Blueprint, jsonify
 from ..config import Config
-from ..utils.llm_client import LLMClient
+from ..utils import LLMClient, FileParser, split_text_into_chunks
 
 test_bp = Blueprint('test', __name__)
 
@@ -34,3 +34,17 @@ def test_llm_chat():
     res =  llm.chat(messages=[{'role':'user','content':'你好,这是测试消息'}])
     print(res)
     return jsonify({"message": res})
+
+
+@test_bp.route('/file_parser/<path:file_path>', methods=['GET'])
+def test_file_parser(file_path: str):
+    """测试文件解析"""
+
+    file_content = FileParser.extract_text(file_path)
+
+    print(file_content)
+
+    content_chunk_list = split_text_into_chunks(text= file_content, chunk_size=1000, overlap=50)
+    
+    return jsonify({"chunks": content_chunk_list})
+    
