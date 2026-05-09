@@ -37,6 +37,8 @@ class Config:
     # 文件上传配置
     MAX_CONTENT_LENGTH = 50 * 1024 * 1024  # 50MB
     UPLOAD_FOLDER = os.path.join(_project_root, 'uploads')
+    UPLOAD_FOLDER_DEL = os.path.join(_project_root, 'del_peoject')
+
     ALLOWED_EXTENSIONS = {'pdf', 'md', 'txt', 'markdown'}
 
     # 文本处理配置
